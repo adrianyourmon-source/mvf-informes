@@ -347,7 +347,15 @@
 
   $('driveSend').onclick = sendCurrentToDrive;
   $('teamSend').onclick = sendToTeam;
-  $('driveStatus').onclick = () => processQueue(true);
+  $('driveStatus').onclick = () => {
+    if (!driveConfig().token) {
+      const entered = (window.prompt('Escribe el token de Drive (la clave que te dio MVF)') || '').trim();
+      if (!entered) return;
+      writeJson(CONFIG_KEY, Object.assign(readJson(CONFIG_KEY, {}), { token: entered }));
+      notify('Token guardado.');
+    }
+    processQueue(true);
+  };
   $('teamRefresh').onclick = () => renderTeam();
   $('showHistory').addEventListener('click', () => renderTeam());
   $('historySearch').addEventListener('input', () => { clearTimeout(window.__mvfTeamSearch); window.__mvfTeamSearch = setTimeout(renderTeam, 500); });

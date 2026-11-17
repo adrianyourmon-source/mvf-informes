@@ -1,6 +1,6 @@
 // Service worker: guarda la app en el teléfono para que abra sin internet.
 // Al cambiar archivos de la app, sube el número de CACHE.
-const CACHE = 'mvf-informes-web-v2';
+const CACHE = 'mvf-informes-web-v3';
 const FILES = ['./', 'index.html', 'mobile-ui.css', 'mobile-ui.js', 'history-app.js', 'drive-config.js', 'drive-sync.js',
   'jszip.min.js', 'calera-template.docx', 'mvf-logo.png', 'signature.png', 'manifest.webmanifest',
   'icon-180.png', 'icon-192.png', 'icon-512.png',
